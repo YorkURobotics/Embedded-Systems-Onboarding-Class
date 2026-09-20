@@ -65,7 +65,7 @@ If you kept the CO2 sensor from your OOP course you have your own, and you can w
 
 ```
 1. Read the rules below.
-2. Read GIT-GUIDE.md and make your branch.
+2. Read GIT-GUIDE.md and create your own repository from the template.
 3. Come to a session and grab a board.
 4. Start Phase 1.
 5. Add a few lines to FIELD-LOG.md at the end of each session.
@@ -209,11 +209,11 @@ You are encouraged to tell other recruits, anyone at the club, and anyone thinki
 
 ## 2. Git (real)
 
-All work happens in a git repository, on **your own branch**, from the start.
+All work happens in a git repository, in **your own repository**, from the start.
 
 Two reasons, both real. Our actual firmware lives in git, and somebody who cannot use it cannot contribute no matter how well they know I2C. And a genuine development history is very hard to fake.
 
-- Work on a branch named after you. **Never commit to `main`.**
+- Create your own repository from the project template. **Never push to the original.**
 - At least **8 commits across 4 different days**. At home or at the club, both count.
 - Add a few lines to `FIELD-LOG.md` each session and commit it with the code.
 - Push at the end of every session.
@@ -286,7 +286,7 @@ It works the other way too: **an unfinished task whose author confidently change
 
 ## On the day
 
-**Bring:** a charged laptop. The hardware is here. Push everything first, we open your branch from the remote, not your laptop.
+**Bring:** a charged laptop. The hardware is here. Push everything first, we open your repository from GitHub, not your laptop.
 
 **1. Show us it working (10 min).** You drive.
 - Blink runs, console prints.
@@ -318,7 +318,7 @@ It works the other way too: **an unfinished task whose author confidently change
 - [ ] PWM works, arithmetic shown in a comment
 - [ ] Kill switch latches and stays latched
 - [ ] Status line once a second, and `check_frame.py` accepts it
-- [ ] Working on my own branch, never committed to `main`
+- [ ] Working in my own repository, never pushed to the original
 - [ ] 8+ commits over 4+ days, log committed alongside, everything pushed
 - [ ] Bonus attempted: ______________ (or "none", that is the common answer)
 - [ ] Known issues I am declaring up front: ______________

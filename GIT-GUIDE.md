@@ -4,7 +4,7 @@
 
 Never used git? Start at step 1 and do every command. Nothing is assumed.
 
-Used it before? You only need **step 4**: branch named after you, never commit to `main`.
+Used it before? You only need **step 4**: work in your own repository, created from the template, never in the original.
 
 Every line starting with `$` is a command you type. Do not type the `$`.
 
@@ -14,9 +14,9 @@ Every line starting with `$` is a command you type. Do not type the `$`.
 
 Git records snapshots of your files over time. Each snapshot is called a **commit**, and it has a message saying what changed.
 
-A **branch** is a separate line of commits, so several people can work on the same project without writing over each other. GitHub is a website that stores a copy of your repository so other people (us) can see it.
+GitHub is a website that stores a copy of your repository so other people (us) can see it. This project's repository is a **template**, so instead of cloning it directly, you click **Use this template** to generate your own brand new, independent repository with the same starting files.
 
-You work on **your own branch**. You never touch `main`.
+For this project you create your own repository from the template and work there. You never push to the original, nobody else can see your repository unless you share it, and the finished project is yours to show off as your own.
 
 ---
 
@@ -61,19 +61,23 @@ $ git config --global --list
 
 ---
 
-## STEP 3: Get the repository onto your computer
+## STEP 3: Create your repository from the template, then clone it
 
-**First, get access.** Ask your Handler to add you to the repository on GitHub. You need write access to push a branch.
+**First create your repository.** This makes your own independent copy of the project under your GitHub account. 
 
-**Then clone it.** Cloning means downloading a full copy, history and all.
+1. Open the repository on GitHub. Your Handler will give you the link.
+2. Click the green **Use this template** button near the top right, then **Create a new repository**.
+3. Pick an owner (your account) and a name the default name is fine. Click **Create repository**.
+4. GitHub takes you to `github.com/<YOUR-USERNAME>/<REPO>`. That page is your repository.
+
+**Then clone it.** Cloning means downloading a full copy to your computer, history and all. On your repository's page, click the green **Code** button and copy the URL.
 
 ```
-$ cd ~/Documents
-$ git clone https://github.com/<ORG>/<REPO>.git
+$ git clone https://github.com/<YOUR-USERNAME>/<REPO>.git
 $ cd <REPO>
 ```
 
-Replace `<ORG>` and `<REPO>` with the real ones. Your Handler will give you the URL, or copy it from the green **Code** button on GitHub.
+Replace `<YOUR-USERNAME>` with your GitHub username and `<REPO>` with the repository name. The URL must have your username in it, not the original organisation's.
 
 **If it asks for a password:** GitHub stopped accepting account passwords in 2021. You need one of these:
 
@@ -82,27 +86,19 @@ Replace `<ORG>` and `<REPO>` with the real ones. Your Handler will give you the 
 
 ---
 
-## STEP 4: Make your branch
+## STEP 4: Check you are in your own repository
 
-**This is the important one.** Everything you do lives on a branch named after you.
-
-```
-$ git checkout -b firstname-lastname
-```
-
-So if your name is Alex Chen:
-```
-$ git checkout -b alex-chen
-```
-
-`checkout -b` means "make a new branch and switch to it". Check which branch you are on at any time:
+**This is the important one.** Everything you do is pushed to your own repository, never to the original.
 
 ```
-$ git branch
+$ git remote -v
 ```
-The one with a `*` next to it is where you are.
 
-> **Never commit to `main`.** `main` is the task itself. If `git branch` shows `* main`, stop and run the `checkout -b` command above.
+You should see your own GitHub username in the URLs, like `github.com/alex-chen/<REPO>`.
+
+> If you see the original organisation's name instead of your username, you cloned the original by accident. Stop, and follow "I cloned the original by mistake" at the bottom of this guide before you commit anything.
+
+Inside your own repository, working on `main` is fine. It is your copy, so you cannot break the original and nobody else's work can collide with yours.
 
 ---
 
@@ -140,29 +136,25 @@ $ git log --oneline
 
 ---
 
-## STEP 6: Push to GitHub
+## STEP 6: Push to your repository
 
-Pushing uploads your commits so we can see them.
+Pushing uploads your commits to your repository on GitHub so we can see them.
 
-**The first time on a new branch**, you have to tell git where to put it:
-```
-$ git push -u origin firstname-lastname
-```
-
-**Every time after that**, just:
 ```
 $ git push
 ```
 
-Push at the end of every session. We open your branch from GitHub, not from your laptop.
+That is all it takes, every time, including the first. Cloning already linked your computer to your repository.
+
+Push at the end of every session. We open your repository from GitHub, not from your laptop.
 
 ---
 
 ## STEP 7: Check it worked
 
-Go to the repository on GitHub. Click the branch dropdown (it says `main` by default) and pick your branch. Your files and commits should be there.
+Go to your repository on GitHub: `github.com/<YOUR-USERNAME>/<REPO>`. Your files and commits should be there. Send your Handler that link (and add us as a collaborator first if you made it private).
 
-If they are not, you have not pushed. Run `git status` and see what it says.
+If they are not there, you have not pushed. Run `git status` and see what it says.
 
 ---
 
@@ -179,35 +171,6 @@ Four commands. That is the job.
 
 ---
 
-## Getting updates from main
-
-If your Handler changes the task while you are working, pull the changes into your branch:
-
-```
-$ git checkout main
-$ git pull
-$ git checkout firstname-lastname
-$ git merge main
-```
-
-If git reports a conflict, open the file it names. You will see markers like:
-
-```
-<<<<<<< HEAD
-your version
-=======
-their version
->>>>>>> main
-```
-
-Delete the markers, keep the text you want, save, then:
-```
-$ git add <the file>
-$ git commit
-```
-
----
-
 ## When something goes wrong
 
 **`fatal: not a git repository`**
@@ -217,53 +180,21 @@ You are in the wrong folder. `cd` into the cloned repository first.
 You skipped step 2. Run those two `git config` commands.
 
 **`Updates were rejected because the remote contains work that you do not have`**
-Somebody pushed to your branch, or you pushed from another machine. Run:
+You pushed from another machine, or edited a file on the GitHub website. Run:
 ```
 $ git pull
 $ git push
 ```
 
-**`error: failed to push some refs`, and you are on `main`**
-You are not allowed to push to `main`, and that is deliberate. Make your branch:
+**`remote: Permission denied`, or `error: failed to push some refs` with a 403**
+**I cloned the original by mistake**
+You are trying to push to the original repository, and you are not allowed to. That is deliberate. Create your own repository from the template first (step 3), then point your local copy at it:
 ```
-$ git checkout -b firstname-lastname
-$ git push -u origin firstname-lastname
+$ git remote set-url origin https://github.com/<YOUR-USERNAME>/<REPO>.git
+$ git push
 ```
+Your commits are kept.
 
-**I staged a file I did not mean to**
-```
-$ git restore --staged <file>
-```
-
-**I want to throw away my changes to a file**
-```
-$ git restore <file>
-```
-This deletes your edits to that file. There is no undo.
-
-**I typed the wrong commit message**
-Only if you have not pushed yet:
-```
-$ git commit --amend -m "the message I meant"
-```
-
-**I committed to `main` by accident**
-Do not panic, nothing is lost:
-```
-$ git branch firstname-lastname      # save your work to a new branch
-$ git reset --hard origin/main       # put main back how it was
-$ git checkout firstname-lastname    # carry on
-```
-
-**Everything is on fire and I do not understand what I did**
-Stop. Do not run anything else, especially anything you found online with `--force` in it. Message your Handler with the exact output of:
-```
-$ git status
-$ git log --oneline -5
-```
-Nobody has ever been in trouble for a broken repository.
-
----
 
 ## References
 
@@ -276,9 +207,9 @@ Nobody has ever been in trouble for a broken repository.
 
 ## What we check
 
-- You worked on your own branch and never committed to `main`.
+- You worked in your own repository, created from the template, and nothing was pushed to the original.
 - At least 8 commits across at least 4 different days.
 - `FIELD-LOG.md` committed alongside the code it describes, not written up at the end.
-- Everything pushed before your debrief.
+- Everything pushed to your repository before your debrief.
 
 Commit your mistakes. A history with no bugs in it describes a project that did not happen.
