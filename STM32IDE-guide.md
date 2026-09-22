@@ -35,7 +35,7 @@ You do **not** need to install standalone STM32CubeMX for this project.
 
 ---
 
-## STEP 2: Plug in the board
+## STEP 1: Plug in the board
 
 Connect the NUCLEO board to your computer using the ** USB connector**.
 
@@ -76,7 +76,7 @@ Peripherals are configured from the menu on the left.
 
 ---
 
-## STEP 6: Generate code
+## STEP 5: Generate code
 
 Save the `.ioc` file:
 
@@ -104,7 +104,7 @@ Core/Src/main.c
 
 ---
 
-## STEP 7: Put your code in USER CODE sections
+## STEP 6: Put your code in USER CODE sections
 
 CubeMX generates parts of `main.c`.
 
@@ -135,7 +135,7 @@ while (1)
 
 ---
 
-## STEP 8: Build
+## STEP 7: Build
 
 Click the **hammer icon**, or use:
 
@@ -155,7 +155,7 @@ Warnings are worth reading. Errors must be fixed before flashing.
 
 ---
 
-## STEP 9: Flash and run
+## STEP 8: Flash and run
 
 Connect the NUCLEO board.
 
@@ -173,7 +173,7 @@ Your program is now running on the STM32.
 
 ---
 
-## STEP 10: Debug
+## STEP 9: Debug
 
 Click the **bug icon** instead of Run.
 
