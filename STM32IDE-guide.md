@@ -30,15 +30,7 @@ The default options are fine.
 
 ---
 
-## STEP 2: Plug in the board
-
-Connect the NUCLEO board to your computer using the **USB connector**.
-
-The ST-LINK programmer is built into the NUCLEO board. You do not need a separate programmer.
-
----
-
-## STEP 3: Create the project
+## STEP 2: Create the project
 
 In STM32CubeMX:
 
@@ -56,7 +48,7 @@ CubeMX will create the `.ioc` configuration.
 
 ---
 
-## STEP 4: Configure CubeMX
+## STEP 3: Configure CubeMX
 
 The important CubeMX tabs are:
 
@@ -72,7 +64,7 @@ Peripherals are configured from the menu on the left.
 
 ---
 
-## STEP 5: Generate code
+## STEP 4: Generate code
 
 Save the `.ioc` file:
 
@@ -102,7 +94,7 @@ Core/Src/main.c
 
 ---
 
-## STEP 6: Put your code in USER CODE sections
+## STEP 5: Put your code in USER CODE sections
 
 CubeMX generates parts of `main.c`.
 
@@ -133,7 +125,7 @@ while (1)
 
 ---
 
-## STEP 7: Build
+## STEP 6: Build
 
 Click the **hammer icon**, or use:
 
@@ -150,6 +142,14 @@ You want:
 ```
 
 Warnings are worth reading. Errors must be fixed before flashing.
+
+---
+
+## STEP 7: Plug in the board
+
+Connect the NUCLEO board to your computer using the **USB connector**.
+
+The ST-LINK programmer is built into the NUCLEO board. You do not need a separate programmer.
 
 ---
 
