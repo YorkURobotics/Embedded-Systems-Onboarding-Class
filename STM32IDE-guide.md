@@ -14,30 +14,25 @@ For this project we use the **NUCLEO-F302R8**. Your STM32CubeIDE project belongs
 
 **STM32CubeIDE** is where you write C, build the project, flash the board and debug it.
 
-CubeMX is built into STM32CubeIDE, so most of the time you use both from the same program.
-
 The `.ioc` file stores your CubeMX configuration.
 
 ---
 
 ## STEP 1: Install STM32CubeIDE
 
-Download **STM32CubeIDE** from STMicroelectronics and install it.
+Download **STM32CubeIDE** and **STM32CubeMX** from STMicroelectronics and install them.
 
 Link: https://www.st.com/en/development-tools/stm32cubeide#section-get-software-table
 
 The default options are fine.
 
-You do **not** need to install standalone STM32CubeMX for this project.
-(But you are welcome to if you want!)
-
-**Do not donwload VScode version of the IDE since it is really raw and you will spend more time debuging the IDE then doing the project** 
+**Do not download the VS Code version of the IDE since it is really raw, and you will spend more time debugging the IDE than doing the project.**
 
 ---
 
-## STEP 1: Plug in the board
+## STEP 2: Plug in the board
 
-Connect the NUCLEO board to your computer using the ** USB connector**.
+Connect the NUCLEO board to your computer using the **USB connector**.
 
 The ST-LINK programmer is built into the NUCLEO board. You do not need a separate programmer.
 
@@ -45,18 +40,19 @@ The ST-LINK programmer is built into the NUCLEO board. You do not need a separat
 
 ## STEP 3: Create the project
 
-In STM32CubeIDE:
+In STM32CubeMX:
 
-1. `File` → `New` → `STM32 Project`
+1. Click `File` → `New Project`
 2. Open **Board Selector**
 3. Search for `NUCLEO-F302R8`
 4. Select the board
-5. Click **Next**
-6. Name your project
-7. Create it inside this repository's `firmware/` folder
-8. Finish
+5. Click **Start Project**
+6. Open the **Project Manager** tab
+7. Name your project
+8. Set the project location to this repository's `firmware/` folder
+9. Change **Toolchain / IDE** from the default `EWARM` to `STM32CubeIDE`
 
-CubeIDE will open the `.ioc` configuration.
+CubeMX will create the `.ioc` configuration.
 
 ---
 
@@ -83,6 +79,8 @@ Save the `.ioc` file:
 ```text
 Ctrl + S
 ```
+
+Alternatively: press ```Generate``` button in the right top corner.
 
 CubeMX may ask to generate code. Click **Yes**.
 
