@@ -265,8 +265,6 @@ Open .ioc
     ↓
 Configure pins/peripherals
     ↓
-Configure clock
-    ↓
 Save / generate code
     ↓
 Write code in USER CODE sections
